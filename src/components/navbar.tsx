@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { LogoWithGlow } from "@/components/logo-glow";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   return (
@@ -29,11 +30,28 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Desktop spacer keeps layout balanced */}
-        <div className="hidden md:flex md:min-w-[10rem] md:justify-end" />
+        <div className="hidden md:flex md:min-w-[10rem] md:justify-end">
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="rounded-full border-white/20 px-4 font-semibold uppercase tracking-[0.22em]"
+          >
+            <Link href="/employees">Our Team</Link>
+          </Button>
+        </div>
       </div>
-      {/* Mobile center menu (stacked) */}
-      <div className="border-t border-border md:hidden" />
+
+      <div className="border-t border-border md:hidden">
+        <div className="mx-auto flex max-w-7xl justify-center px-4 py-3">
+          <Link
+            href="/employees"
+            className="text-[11px] font-semibold uppercase tracking-[0.34em] text-foreground/80 underline-offset-4 hover:underline"
+          >
+            Our Team
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }
